@@ -5,8 +5,8 @@ compress = require('compression'),
 bodyParser = require('body-parser'),
 methodOverride = require('method-override'),
 session =require('express-session'),
-flash = require('connect-flash'),
-passport =require('passport'),
+// flash = require('connect-flash'),
+// passport =require('passport'),
 moment = require('moment');
 
 module.exports = function() {
@@ -39,12 +39,13 @@ module.exports = function() {
     // app.use(require('cors')());
 
     // Set Flash Module
-    app.use(flash());
+    // app.use(flash());
     // Set passport sessions
-    app.use(passport.initialize());
-    app.use(passport.session());
+    // app.use(passport.initialize());
+    // app.use(passport.session());
 
     require('../app/routes/index.server.routes.js')(app);
+    require('../app/routes/weather.server.routes.js')(app);
     // require('../app/routes/articles.server.routes.js')(app);
     // require('../app/routes/users.server.routes.js')(app);
     // require('../app/routes/appgets.server.routes.js')(app);

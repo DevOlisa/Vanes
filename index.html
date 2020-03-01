@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="Vane">
 
 <head>
     <title>Weather App</title>
@@ -8,27 +8,153 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <meta name="description" content="{{description}}">
-    <meta property="og:description" content="{{description}}">
+    <meta name="description" content="A Weather App built to mesmerize">
+    <meta property="og:description" content="A Weather App built to mesmerize">
     <meta name="keyword" content="">
 
     <link rel="stylesheet" href="./css/vendor/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/svg.css">
+
+    <!-- Our third party scripts -->
+    <!-- <script src="./lib/jquery.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="./lib/bootstrap.js"></script> -->
+    <script type="text/javascript" src="./lib/angular/angular.js"></script>
+    <script type="text/javascript" src="./lib/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="./lib/angular-animate/angular-animate.js"></script>
+    <script src="./lib/angular-route/angular-route.js"></script>
+    <!-- <script type="text/javascript" src="./lib/auth0-js/build/auth0.js"></script>
+    <script type="text/javascript" src="./lib/angular-auth0/dist/angular-auth0.js"></script> -->
+    <script src="./lib/angular-cookies/angular-cookies.js"></script>
+    <!-- <script src="./lib/angular-messages/angular-messages.js"></script> -->
+    <script src="./lib/angular-resource/angular-resource.js"></script>
+    <!-- <script src="./lib/angular-slick.min.js"></script> -->
+    <script src="./lib/angular-sanitize.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js"
+        integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P"
+        crossorigin="anonymous"></script>
+
+    <!-- our main feature modules -->
+    <script src="./main/main.client.module.js"></script>
+    <script src="./weather/weather.client.module.js"></script>
+    <script src="./places/places.client.module.js"></script>
+
+    <script src="./main/main.client.service.js"></script>
+    <script src="./main/location.client.service.js"></script>
+    <script src="./main/main.client.routes.js"></script>
+    <script src="./main/main.client.controllers.js"></script>
+
+    <script src="./weather/weather.client.service.js"></script>
+    <script src="./weather/weather.client.directive.js"></script>
+    <script src="./weather/weather.client.controllers.js"></script>
+
+    <script src="./places/places.client.controllers.js"></script>
+
+    <script src="./app.client.js"></script>
 </head>
 
 <body>
-    <div class="top container col-xs-4">
-        <div class="top row wrapper">
-            <h1> Hey Weather!</h1>
+    <div id="app">
+        <div class="weather-view container">
+            <div class="row align-content-center" style="height: 100%;">
+                <div class="col-lg-4 col-sm-10 d-flex flex-wrap justify-content-center">
+                    <div class="flex-item">
+                        <h4>{{weatherData.timezone}}</h4>
+                    </div>
+                    <div ui-sref="weather" class="flex-item" style="flex: 1 0 100%">
+                        <object id="weather-illus" class="d-block mx-auto" data="./icons/sunny-bright.svg"
+                            width="120px"></object>
+                    </div>
+                    <div class="flex-item" ui-sref="places">
+                        <h1>{{weatherData.currently.temperature | number : 0}}<strong>&deg;</strong>F</h1>
+                        <small class="text-muted">{{weatherData.currently.summary}}</small>
+                    </div>
+                </div>
+            </div>
 
         </div>
-        <div class="bottom row wrapper">
-            <h2 class="center"> More Info!</h2>
+        <div class="content-view container">
+            <nav class="ml-n3 mr-n3" role="navigation">
+                <ul class="nav nav-tabs flex justify-content-around" id="myTab">
+                    <li ui-sref="weather" ui-sref-active="active" class="nav-item flex-item d-inline-flex"><a
+                            class="nav-link" data-toggle="tab">
+                            Weather
+                            <svg id="weather-ico" width="24px" height="24px" version="1.1"
+                                style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                viewBox="0 0 240 240" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect class="fil0" width="240" height="240" />
+                                <path class="fil0 str0"
+                                    d="M154 99c58,9 51,73 51,73l-171 0c0,-26 9,-45 25,-54 -16,9 -25,28 -25,54m25 -53c0,-70 97,-70 97,-5m-97 4c8,-4 17,-6 27,-5 -10,-1 -19,1 -27,5z" />
+                                <path class="fil0"
+                                    d="M154 99c58,9 51,73 51,73l-171 0c0,-26 9,-45 25,-54 1,-63 82,-68 95,-19z" />
+                                </g>
+                            </svg>
+                        </a></li>
+                    <li ui-sref="places" ui-sref-active="active" class="nav-item flex-item"><a class="nav-link"
+                            data-toggle="tab">
+                            Places
+                            <svg id="locationPin-ico" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                                width="22px" height="22px" version="1.1"
+                                style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                                viewBox="0 0 240 240" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <rect class="fil0" width="240" height="240" />
+                                <path class="fil1 str0"
+                                    d="M118 35c22,0 40,18 40,41 0,8 -2,16 -7,23l-32 104 -36 -105c-3,-6 -5,-12 -6,-19 0,-1 0,-2 0,-3 0,-23 18,-41 41,-41zm0 19c11,0 19,9 19,19 0,10 -8,18 -19,18 -10,0 -18,-8 -18,-18 0,-10 8,-19 18,-19z" />
+                                <circle class="fil2 str1" cx="118" cy="70" r="18" />
+                            </svg>
+                        </a></li>
+                    <li ui-sref-active="active" class="nav-item flex-item"><a class="nav-link" data-toggle="tab">Events
+                            <svg id="event-ico" width="24px" height="24px" version="1.1" viewBox="0 0 240 240">
+                                <path class="fil0 str0"
+                                    d="M47 67l143 0 0 115c0,2 -2,4 -4,4l-135 0c-2,0 -4,-2 -4,-4l0 -115z" />
+                                <rect class="fil1 str1" x="50" y="67" width="135.63" height="19.376" />
+                                <circle class="fil0 str2" cx="74" cy="117" r="10" />
+                                <line class="fil0 str3" x1="169" y1="55" x2="169" y2="73" />
+                                <line class="fil0 str3" x1="69" y1="55" x2="69" y2="73" />
+                                <circle class="fil0 str2" cx="119" cy="117" r="10" />
+                                <circle class="fil1 str2" cx="163" cy="117" r="10" />
+                                <circle class="fil0 str2" cx="74" cy="150" r="10" />
+                                <circle class="fil0 str2" cx="119" cy="150" r="10" />
+                                <circle class="fil0 str2" cx="163" cy="150" r="10" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
+            <div ui-view>
+
+            </div>
+        <!-- Modal -->
+        <div class="modal fade" ng-class="{'show': true}" id="loadingModal" tabindex="-1" role="dialog" arialabelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body px-1 py-1 pt-auto pb-auto">
+                        <div class="row" ng-if="true" style="height: 70px;">
+                            <div class="col-3">
+                                <object data="./icons/loading.svg" width="70px"></object>
+                            </div>
+                            <div class="col-9 d-flex">
+                                <small class="text-muted align-self-center mx-0 flex-item">Locating...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        </div>
+
 </body>
 
 </html>

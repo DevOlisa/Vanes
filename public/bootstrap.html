@@ -1,0 +1,209 @@
+<div class="col-md-6">
+    <h4>First Column<small>1st</small></h4>
+
+    <nav class="navbar navbar-toggleable-md navbar-dark bg-primary"> <button
+            class="navbar-toggler navbar-toggler-right" type="button" datatoggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <a
+            class="navbar-brand" href="#">Navbar</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active"> <a class="nav-link" href="#">Home <span
+                            class="sr-only">(current)</span></a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Features</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="#">Pricing</a> </li>
+                <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="http://example.com"
+                        id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        ariaexpanded="false"> Dropdown link </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> <a
+                            class="dropdown-item" href="#">Action</a> <a class="dropdown-item"
+                            href="#">Another action</a> <a class="dropdown-item" href="#">Something else
+                            here</a> </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Button trigger modal --> <button type="button" class="btn btn-primary" data-toggle="modal"
+        datatarget="#myModal"> Launch demo modal </button>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" arialabelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> <button type="button"
+                        class="close" data-dismiss="modal" aria-label="Close"> <span
+                            aria-hidden="true">&times;</span> </button>
+                </div>
+                <div class="modal-body">
+                    <h2>Modal body heading</h2>
+                    <p>Modal body text description</p>
+                </div>
+                <div class="modal-footer"> <button type="button" class="btn btn-secondary"
+                        data-dismiss="modal">Close</ button> <button type="button"
+                            class="btn btn-primary">Save changes</button> </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-3">Fluid jumbotron</h1>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its
+                parent.</p>
+        </div>
+    </div>
+
+    <div class="card" style="width: 20rem;"> <img class="card-img-top w-100"
+            src="https://dummyimage.com/600x400/563d7c/fff" alt="Card image cap">
+        <div class="card-body">
+            <h4 class="card-title">Card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                the card's content.</p> <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+</div>
+
+<div class="col-md-6">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="nav-item active"><a class="nav-link" data-toggle="tab" href="#tabOne">Home</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tabTwo">About</a></li>
+        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#tabThree">Price</a></li>
+    </ul>
+    <div class="tab-content pt-3" id="myTabContent">
+        <div class="tab-pane fade active show" id="tabOne">Home</div>
+        <div class="tab-pane" id="tabTwo">
+            <div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>Note</strong>
+                This alert is dismissable. <button type="button" class="close" data-dismiss="alert"
+                    aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div>
+        </div>
+        <div class="tab-pane" id="tabThree">
+            Prices
+        </div>
+        <h4>Second Column- Split into 4 boxes</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Note</strong>
+                    This alert is dismissable. <button type="button" class="close" data-dismiss="alert"
+                        aria-label="Close"> <span aria-hidden="true">&times;</span> </button> </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="row">
+                    <a class="btn btn-primary mb-3 collapsed" data-toggle="collapse" href="#collapseContent"
+                        role="button" aria-expanded="false" ariacontrols="collapseContent"><span
+                            class="if-collapsed"><b>+</b> Show Content</span> <span
+                            class="if-not-collapsed"><b>-</b> Hide Content</span></a>
+                    <div class="collapse" id="collapseContent">
+                        <div class="card card-body">
+                            <table class="table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>#</th>
+                                        <th>thead-dark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Nina</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <style>
+                        /* this custom CSS is used to toggle the button text */
+                        [data-toggle="collapse"].collapsed .if-not-collapsed,
+                        [data-toggle="collapse"]:not(.collapsed) .if-collapsed {
+                            display: none;
+                        }
+                    </style>
+                </div>
+
+                <form role="form">
+                    <div class="btn-group">
+                        <button class="btn btn-default" type="button">Default</button>
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle dropdown</span>
+                        </button>
+                        <div class="dropdown-menu" role="menu">
+                            <li href="#">Action</li>
+                            <li href="#">Another action</li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </div>
+                    </div>
+                    <div class="input-group input-group-sm">
+                        <!-- <label for="name">Name</label> -->
+                        <span class="input-group-addon">Mr.</span>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputfile">File input</label>
+                        <input type="file" id="inputfile">
+                        <small class="text-muted">Example block-level help text here.</small>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    <div class="dropdown">
+                        <button type="button" class="btn dropdown-toggle" id="dropdownMenu1"
+                            data-toggle="dropdown">
+                            Topics
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">Java</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">Data Mining</a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                    Data Communication/Networking
+                                </a>
+                            </li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">Separated link</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-group">
+                        <label for="name">Select list</label>
+                        <select class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                        <span class="help-block">A longer block of help text that
+                            breaks onto a new line and may extend beyond one line.</span>
+
+                        <label for="name">Mutiple Select list</label>
+                        <select multiple class="form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

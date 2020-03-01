@@ -7,6 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@popperjs/core": "^2.0.6",
     "@uirouter/angularjs": "^1.0.23",
     "angular": "^1.7.8",
     "angular-animate": "^1.7.8",
@@ -17,28 +18,15 @@
     "angular-route": "^1.7.8",
     "auth0-js": "^9.11.3",
     "body-parser": "^1.19.0",
-    "bootstrap": "^4.3.1",
-    "bower-away": "^1.1.2",
     "compression": "^1.7.4",
-    "connect-flash": "^0.1.1",
-    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "forecast": "^0.3.2",
+    "forecastio": "^0.2.0",
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
-    "moment-twitter": "^0.2.0",
     "mongoose": "^5.7.1",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.2",
-    "passport": "^0.4.0",
-    "passport-facebook": "^3.0.0",
-    "passport-google-oauth": "^2.0.0",
-    "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.4"
-  },
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "webpack": "^4.41.2"
+    "nodemon": "^1.19.2"
   }
 }

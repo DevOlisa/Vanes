@@ -7,12 +7,34 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'montserrat'; }
+  font-family: 'montserrat';
+}
 
 
 //   Main Style
+#app {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
 
-.top {
-    height: 39.2vh;
-    background: linear-gradient(180deg, #D16D09, #F6F054);
+.weather-view {
+  height: 39.2vh;
+  background: linear-gradient(180deg, #D16D09, #F6F054);
+
+}
+
+.content-view {
+  height: 60.8vh;
+}
+
+#mainNav {}
+
+.nav a,
+.nav a:hover,
+.nav-tabs .nav-link {
+  border: none;
+  font-size: 14px;
+  padding: 12px 7px;
 }

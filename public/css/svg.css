@@ -1,0 +1,46 @@
+/**************** SVG STYLES ******************/
+#event-ico .str2 {
+  stroke: #4D4D4D;
+  stroke-width: 6.66709; }
+#event-ico .str1 {
+  stroke: #4D4D4D;
+  stroke-width: 2.88; }
+#event-ico .str0 {
+  stroke: #4D4D4D;
+  stroke-width: 9.99685;
+  stroke-linecap: round; }
+#event-ico .str3 {
+  stroke: #4D4D4D;
+  stroke-width: 19.1962;
+  stroke-linecap: round; }
+#event-ico .fil0 {
+  fill: none; }
+#event-ico .fil1 {
+  fill: #4D4D4D; }
+
+#locationPin-ico .str0 {
+  stroke: #4D4D4D;
+  stroke-width: 19.1962; }
+#locationPin-ico .str1 {
+  stroke: white;
+  stroke-width: 6.66709; }
+#locationPin-ico .fil0 {
+  fill: none; }
+#locationPin-ico .fil1 {
+  fill: #4D4D4D; }
+#locationPin-ico .fil2 {
+  fill: white; }
+#locationPin-ico.active .str0,
+#locationPin-ico.active .fil1 {
+  stroke: var(--blue);
+  fill: var(--blue); }
+
+#weather-ico .str0 {
+  stroke: #4D4D4D;
+  stroke-width: 9.99685; }
+#weather-ico .fil0 {
+  fill: none; }
+
+/**************** END SVG STYLES ******************/
+
+/*# sourceMappingURL=svg.css.map */
