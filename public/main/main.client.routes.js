@@ -1,6 +1,7 @@
 angular.module('Main')
 .config(['$stateProvider', '$sceDelegateProvider', function($stateProvider, $sceDelegateProvider) {
     $stateProvider
+
     .state('places', {
         url: '/places',
         templateUrl: './places/views/places-page.html',
@@ -9,12 +10,11 @@ angular.module('Main')
     .state('weather', {
         url: '/weather',
         templateUrl: './weather/views/weather-page.html',
-        controller: 'WeatherController as weatherCtrl'
     })
     .state('events', {
         url: '/events',
-        templateUrl: './places/views/places-page.html',
-        controller: 'PlacesController as placeCtrl'
+        templateUrl: './schedule/views/events-page.html',
+        controller: 'EventsController as ec'
     })
     $sceDelegateProvider.resourceUrlWhitelist([
         // Allow same origin resource loads.

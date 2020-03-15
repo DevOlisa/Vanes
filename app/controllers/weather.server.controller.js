@@ -4,7 +4,7 @@ const forecast = require('forecastio'),
 
 exports.getCurrentWeather = (req, res, next) => {
     console.log(req.query);
-    weather.forecast(req.query.lat, req.query.long, function (err, data) {
+    weather.forecast(req.query.lat, req.query.long, {lang: "en"},function (err, data) {
         if (err) {
             next();
             return;
@@ -13,9 +13,8 @@ exports.getCurrentWeather = (req, res, next) => {
 
         res.json({
             currently: data.currently,
-            hourly: data.currently.temperature,
+            hourly: data.hourly,
             timezone: data.timezone,
-            humidity: data.currently.humidity
         });
     });
 };

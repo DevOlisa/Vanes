@@ -1,8 +1,8 @@
 angular.module('Vane', ['ui.router', 'ngAnimate',
-    'ngSanitize', 'ngResource', 'Main', 'Places', 'Weather'])
-    .run(['LocationService', 'WeatherService', function (LocationService, WeatherService) {
+    'ngSanitize', 'ngResource', 'Main', 'Places', 'Weather', 'Events'])
+    .run(['LocationService', 'WeatherService', 'NetworkMonitor', function (LocationService, WeatherService, NetworkMonitor) {
         if (window.navigator.geolocation) {
-            if (LocationService.personal) {
+            if (LocationService.usePersonalLocation) {
                 LocationService.latitude = 10.5132588;
                 LocationService.longitude = 7.4376231;
             } else {
@@ -15,6 +15,18 @@ angular.module('Vane', ['ui.router', 'ngAnimate',
         } else {
             alert("Browser doesn't support geolocation");
         }
+
+        window.addEventListener('load', function () {
+            function updateStatus(event) {
+                if (navigator.onLine) {
+                    NetworkMonitor.online = true;
+                } else {
+                    NetworkMonitor.online = false;
+                }
+            }
+
+            window.addEventListener('online', updateStatus);
+        });
     }])
     .config([
         '$stateProvider',

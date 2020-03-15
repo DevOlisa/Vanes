@@ -1,0 +1,12 @@
+<div class="col-xl-3 col-lg-3  col-sm-3 col-3 col-xl-offset"
+ ng-click="view()" draggable="true">
+    <div class="card" style="border: none;">
+        <img class="card-img-top w-100" src="./icons/sunny-bright-sm.svg" alt="Card image cap">
+        <div class="card-body px-1 py-1">
+            <small class="text-muted mb-2 text-center" style="font-size: 0.5em;">{{weatherData.time | addMilliseconds | twitterAgo : 'short'}}</small>
+            <h3 class="card-title text-center mb-0 font-weight-bold">
+                {{weatherData.temperature | number : 0}}&deg;C</h3>
+            <!-- <a href="#" class="btn btn-primary"></a> -->
+        </div>
+    </div>
+</div>

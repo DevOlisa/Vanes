@@ -1,14 +1,21 @@
 angular.module('Main')
-.controller('MainController', ['$scope', '$q', 'WeatherService', function($scope, $q, WeatherService) {
-    var self = this;
+    .controller('MainController', ['$scope', '$timeout', 'WeatherService', function ($scope, $timeout, WeatherService) {
+        var self = this;
+        $scope.showSettings = false;
+        $scope.selected = WeatherService.currently;
 
-    self.currently = {};
-    WeatherService.getWeatherReport()
-    .then(function(response) {
-        self.currently = response;
-        console.log(self.currently);
+        self.toggleSettingsPane = function () {
+            $scope.showSettings = !$scope.showSettings;
+        };
 
-    }, function(error) {
-        console.log(error);
-    })
-}])
+        self.saveSettings = function () {
+            $scope.showSettings = false;
+        }
+
+        // Default temperature filter
+        self.unitFilter = 'C';
+
+    }])
+    .controller('SettingsController', ['$scope', function ($scope) {
+
+    }])

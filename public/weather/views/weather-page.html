@@ -1,4 +1,7 @@
 
-<div class="row">
-    <weather-card class="" ng-repeat="unit in info" weather-data="currently"></weather-card>
+<div class="row mx-0">
+    <small class="col-12 text-center text-muted">
+        <span class="caret"</span>{{hourly.summary}}</small>
+    <weather-card ng-repeat="hour in hourly.data | filter:removePastWeather" weather-data="hour"></weather-card>
+    <!-- {{weatherData.hourly | json}} -->
 </div>

@@ -3,38 +3,329 @@
 // Reset
 body,
 html {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   margin: 0;
   padding: 0;
   font-family: 'montserrat';
+  overflow: hidden;
 }
+
+/************************** Widgets Styles *****************************/
+
+// Checkbox
+#sh-hide-toggle-wrapper {
+  height: 100%;
+  margin-inline-start: auto;
+  position: relative;
+  width: 34px;
+
+  .switch {
+    background-color: white;
+    border-radius: 8px;
+    display: inline-block;
+    height: 12px;
+    left: 3px;
+    position: absolute;
+    top: 50%;
+    transition: background-color linear 80ms;
+    width: 28px;
+    z-index: 0;
+    transform: translateY(-50%);
+  }
+
+  .switch input {
+    opacity: 0;
+
+    &:checked+.toggle {
+      background-color: rgba(#71bcc8, 0.5);
+    }
+
+    &:checked+.toggle .knob,
+    &:checked+.toggle .highlight {
+      background-color: var(--blue);
+      transform: translateX(18px);
+    }
+  }
+
+  .toggle {
+    background-color: #ccc;
+    border-radius: 34px;
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: transform linear 80ms, background-color linear 80ms;
+
+    .knob {
+      background-color: white;
+      border-radius: 50%;
+      bottom: -2px;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .4);
+      content: '';
+      display: block;
+      height: 16px;
+      left: -3px;
+      position: absolute;
+      transition: transform linear 80ms, background-color linear 80ms;
+      width: 16px;
+    }
+
+    .highlight {
+      background-color: rgb(128, 134, 139);
+      border-radius: 50%;
+      height: 40px;
+      left: -15px;
+      opacity: 0;
+      position: absolute;
+      top: -14px;
+      transition: transform linear 80ms, opacity linear 80ms;
+      width: 40px;
+    }
+  }
+}
+
+/************************** End Widgets Styles *****************************/
 
 
 //   Main Style
+#app,
+.weather-view,
+.content-view {
+  position: absolute;
+}
+
 #app {
   width: 100vw;
   height: 100vh;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .weather-view {
+  top: 0;
   height: 39.2vh;
-  background: linear-gradient(180deg, #D16D09, #F6F054);
+  background: linear-gradient(45deg, #b3d7ff, #71bcc8);
+  overflow: hidden;
 
+  #app-options {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .navbar-toggler-icon {
+      background-image: url('../icons/nav-toggler-icon-48px.svg');
+    }
+  }
+
+  .weather-illus {
+    max-width: 350px;
+  }
+}
+
+
+#right-modal {
+  transition: 300ms;
+  transform: translateX(-100%);
+
+  &.show-settings {
+    transform: translateX(0%);
+  }
+}
+
+#settings-pane {
+  opacity: 0;
+  transition: 200ms;
+
+  &.show-settings {
+    transition: 500ms;
+    transition-delay: 100ms;
+    opacity: 1;
+  }
 }
 
 .content-view {
+  bottom: 0;
   height: 60.8vh;
+  background-color: rgba($color: #ffffff, $alpha: 0.75);
+
 }
 
-#mainNav {}
+.main-view {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 50px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.main-view .nav {
+  position: absolute;
+  border: none;
+}
+
+.btn-main {
+  background-color: transparent;
+
+  &:hover {
+    background-color: rgba($color: #ffffff, $alpha: 0.6);
+  }
+
+  &:active {
+    background-color: rgba($color: #ffffff, $alpha: 0.9);
+  }
+}
 
 .nav a,
-.nav a:hover,
 .nav-tabs .nav-link {
   border: none;
   font-size: 14px;
   padding: 12px 7px;
+  color: var(--gray-dark);
+
+  &:hover {
+    color: var(--gray);
+  }
+
+  &.active {
+    color: var(--blue);
+    background-color: initial;
+  }
+}
+
+/*****************************WEATHER STYLES**************************/
+.night,
+.cloudy {
+  background: radial-gradient(#0D417B 14%, #0D0B17);
+  color: rgb(240, 239, 232);
+}
+
+.partly-cloudy-day {
+  background: linear-gradient(180deg, #D16D09, #F6F054, rgb(201, 213, 216) 120%);
+  color: white;
+  text-shadow: 0px 0px 2px rgba($color: #000000, $alpha: 0.4);
+}
+
+.early-morning {
+  background: linear-gradient(0deg, #0981D1, #54D5F6);
+  color: white;
+  // text-shadow: 0px 0px 2px rgba($color: #000000, $alpha: 0.4);
+}
+
+.rainy-day {
+  background: linear-gradient(180deg, #60818B, #BECBCC);
+  color: white;
+  text-shadow: 0px 0px 2px rgba($color: #000000, $alpha: 0.4);
+
+}
+
+.weather-selected-info {
+  object {
+    animation: glow 3s linear 5 forwards alternate;
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0px 0px 40px #ffffff);
+  }
+
+  to {
+    filter: drop-shadow(0px 0px 150px #fbfbb1);
+  }
+}
+
+/*****************************WEATHER STYLES**************************/
+
+/*****************************MEDIA QUERIES**************************/
+@media(min-width: 576px) {
+  .container {
+    max-width: 100vw;
+  }
+}
+
+@media(min-width: 992px) {
+  .weather-view {
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    bottom: 0;
+
+    .weather-selected-info {
+      position: top;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 68.75%;
+    }
+  }
+
+  .content-view {
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 31.25%;
+    bottom: 0;
+
+    .main-view {
+      top: 80px;
+    }
+
+    #myTab .nav-link {
+      padding-top: 30px;
+    }
+
+    .card {
+      background-color: transparent;
+      border-radius: 0;
+
+      &.current-card {
+        border: 2px solid var(--white) !important;
+
+        img {
+          filter: drop-shadow(0px 2px 4px #00000045);
+        }
+      }
+
+
+      &.selected-card {
+        background: rgba($color: #ffffff, $alpha: 0.9);
+      }
+
+      &:not(.selected-card):hover {
+        background-color: rgba($color: #ffffff, $alpha: 0.6);
+        transition: 0.15s;
+      }
+    }
+  }
+
+  // Scroll Bar Style
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    box-shadow: inset 0 0 5px 5px rgba($color: #f1f1f1, $alpha: 0.4);
+    border: 3px solid transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 5px 5px #555454;
+    border: 3px solid transparent;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    // background: $pri;
+    transition: 400ms;
+  }
 }

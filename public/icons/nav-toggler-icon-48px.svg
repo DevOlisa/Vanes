@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="48px" height="48px" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 480 480"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:white;stroke-width:19.9961}
+    .fil0 {fill:none}
+    .fil1 {fill:white}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <rect class="fil0" width="479" height="479"/>
+  <rect class="fil1 str0" x="110" y="110" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="110" y="220" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="110" y="330" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="220" y="330" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="330" y="330" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="330" y="220" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="220" y="220" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="220" y="110" width="40" height="40" rx="20" ry="20"/>
+  <rect class="fil1 str0" x="330" y="110" width="40" height="40" rx="20" ry="20"/>
+ </g>
+</svg>

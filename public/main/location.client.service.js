@@ -3,7 +3,7 @@ angular.module('Main')
     var service = {};
     service.longitude = "";
     service.latitude = "";
-    service.personal = true;
+    service.usePersonalLocation = true;
 
     service.options = {  enableHighAccuracy: false,  maximumAge: 60000,  timeout: 45000 };
 
