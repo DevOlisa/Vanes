@@ -7,13 +7,14 @@ viewBox="0 0 480 480"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .str0 {stroke:white;stroke-width:19.9961}
+    .str0 {stroke:#009933;stroke-width:39.9961;stroke-linecap:square}
     .fil0 {fill:none}
    ]]>
   </style>
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path class="fil0 str0" d="M206 58l65 0c3,0 6,3 6,7l0 135 136 0c3,0 6,3 6,7l0 65c0,4 -3,7 -6,7l-136 0 0 135c0,3 -3,6 -6,6l-65 0c-4,0 -7,-3 -7,-6l0 -135 -135 0c-4,0 -7,-3 -7,-7l0 -65c0,-4 3,-7 7,-7l135 0 0 -135c0,-4 3,-7 7,-7z"/>
+  <rect class="fil0" x="-1" width="481" height="480"/>
+  <polyline class="fil0 str0" points="95,240 192,342 392,132 "/>
  </g>
 </svg>

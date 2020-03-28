@@ -1,17 +1,28 @@
-<div class="card border-0 border-bottom" style="border-radius: 0;">
-    <div class="row">
-        <div class="col-9 d-flex">
+<div class="card border-0 px-3" style="border-radius: 0; height: 85px;">
+    <div class="row h-100">
+        <div class="col-8 d-flex">
             <div class="row align-self-center">
-                <div class="col-12">
-                    {{evt.title}}
+                <div class="col-12 text-white">
+                    {{eventData.title}}
                 </div>
-                <small class="text-muted font-weight-bold col-12" style="font-size: 0.75rem;">
-                    {{evt.time | date: 'short'}}
+                <small class="text-white font-weight-bold col-12" style="font-size: 0.75rem;">
+                    {{eventData.time | date: 'MMM dd HH:MM'}}
                 </small>
             </div>
         </div>
-        <div class="col-3">
-            <img class="responsive float-left" src="./icons/clear-day.svg" style="height: 80px;" />
+        <div class="col-4 d-flex space-around">
+            <div class="btn-group w-100 mx-auto d-flex align-self-center" ng-show="editMode">
+                <button ng-click="edit()" class="btn btn-default flex-item circle px-0" title="Edit">
+                    <span><img src="./icons/edit-48px.svg" width="34px" /></span></button>
+
+                <button ng-click="delete()" class="btn btn-default flex-item circle px-0" title="Delete">
+                    <span><img src="./icons/delete-48px.svg" width="34px" /></span></button>
+            </div>
+            <div class="d-flex justify-content-center" ng-show="!editMode">
+                <div class="text-white flex-item align-self-center">{{weatherData.temperature | tempUnit}}&deg;</div>
+                <img class="responsive position-absolute flex-item align-self-center"
+                    ng-src="./icons/{{weatherData.icon}}.svg" style="max-height: 80%; right: 15px;" />
+            </div>
         </div>
     </div>
 </div>

@@ -9,17 +9,16 @@ angular.module('Weather')
             },
             link: function ($scope, $element, $attrs) {
                 $scope.show = true;
+                $scope.isCurrent = false;
 
-                $scope.isCurrent = function () {
+                var setCurrent = function () {
                     let now = new Date(),
-                    cardTime = new Date($scope.weatherData.time);
-                    if (now.getDay() !== cardTime.getDay()) return false;
+                        cardTime = new Date($scope.weatherData.time);
+                    if (now.getDay() !== cardTime.getDay()) return;
                     if (now.getHours() === cardTime.getHours()) {
-                        // $scope.view();
-                        // $scope.$parent.$parent.$parent.selected = $scope.weatherData;
-                        return true;
+                        $scope.isCurrent = true;
+                        $scope.view();
                     }
-                    return false;
                 };
 
                 $scope.selected = function () {
@@ -32,9 +31,7 @@ angular.module('Weather')
                     $scope.$parent.$parent.$parent.selected = $scope.weatherData;
                 };
 
-                if ($scope.isCurrent()) {
-                    $scope.view();
-                }
+                setCurrent();
             }
         }
     }])

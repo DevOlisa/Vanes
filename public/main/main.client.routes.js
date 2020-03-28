@@ -16,6 +16,7 @@ angular.module('Main')
         templateUrl: './schedule/views/events-page.html',
         controller: 'EventsController as ec'
     })
+    
     $sceDelegateProvider.resourceUrlWhitelist([
         // Allow same origin resource loads.
         'self',

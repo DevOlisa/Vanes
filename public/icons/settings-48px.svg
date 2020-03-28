@@ -7,9 +7,13 @@ viewBox="0 0 480 480"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .fil0 {fill:#007BFF}
+    .fil0 {fill:url(#id0)}
    ]]>
   </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="33.937" y1="240.681" x2="433.937" y2="240.681">
+   <stop offset="0" style="stop-opacity:1; stop-color:white"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#F2F2F2"/>
+  </linearGradient>
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>

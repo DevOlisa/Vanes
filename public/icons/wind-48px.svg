@@ -14,6 +14,9 @@ viewBox="0 0 480 480"
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path class="fil0 str0" d="M206 58l65 0c3,0 6,3 6,7l0 135 136 0c3,0 6,3 6,7l0 65c0,4 -3,7 -6,7l-136 0 0 135c0,3 -3,6 -6,6l-65 0c-4,0 -7,-3 -7,-6l0 -135 -135 0c-4,0 -7,-3 -7,-7l0 -65c0,-4 3,-7 7,-7l135 0 0 -135c0,-4 3,-7 7,-7z"/>
+  <rect id="Rectangle2" class="fil0" width="479" height="479"/>
+  <path class="fil0 str0" d="M73 243c180,-90 170,70 332,-4"/>
+  <path class="fil0 str0" d="M73 139c180,-90 170,70 332,-4"/>
+  <path class="fil0 str0" d="M73 348c180,-90 170,70 332,-3"/>
  </g>
 </svg>

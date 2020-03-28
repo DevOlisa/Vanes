@@ -73,6 +73,23 @@ angular.module('Weather')
                 service.hourly = data.hourly;
             };
 
+            service.getForecast = function(time) {
+                if (time === null) {
+                    throw new Error('Time passed cannot be null');
+                }
+                let data = {},
+                forecastDate = moment(time);
+                service.hourly.data.forEach(hour => {
+                    let currentScope = moment(hour.time),
+                    diff = forecastDate.diff(currentScope);
+                    if (diff <= 3600000 && diff > 0) {
+                        console.log('Found the match');
+                        data = hour;
+                    }
+                });
+                return data;
+            };
+
             service.renewWeatherData();
             // service.keepCurrentlyUpdated();
             return service;

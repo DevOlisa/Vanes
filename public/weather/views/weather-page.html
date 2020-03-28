@@ -1,7 +1,7 @@
 
 <div class="row mx-0">
-    <small class="col-12 text-center text-muted">
-        <span class="caret"</span>{{hourly.summary}}</small>
-    <weather-card ng-repeat="hour in hourly.data | filter:removePastWeather" weather-data="hour"></weather-card>
+    <small class="col-12 text-center text-white my-2">
+        <span class="caret"></span>{{mc.hourly.summary}}</small>
+    <weather-card ng-repeat="hour in mc.hourly.data | filter:removePastWeather" weather-data="hour"></weather-card>
     <!-- {{weatherData.hourly | json}} -->
 </div>

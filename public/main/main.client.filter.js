@@ -20,3 +20,8 @@ angular.module('Main')
         }
     }
 }])
+.filter('formatHumidity', [ function() {
+    return function(humidity) {
+        return humidity * 100;
+    }
+}])

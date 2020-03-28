@@ -31,9 +31,11 @@ angular.module('Vane', ['ui.router', 'ngAnimate',
     .config([
         '$stateProvider',
         '$locationProvider',
+        '$urlRouterProvider',
         function (
             $stateProvider,
-            $locationProvider) {
+            $locationProvider,
+            $urlRouterProvider) {
             var AUTH0_CLIENT_ID = '0vY23DZFjen2aUzWrgFsc13yepS0S55j';
             var AUTH0_DOMAIN = 'dev-q8ikmtc2.auth0.com';
             var AUTH0_CALLBACK_URL = 'http://localhost:3000/callback';
@@ -60,4 +62,9 @@ angular.module('Vane', ['ui.router', 'ngAnimate',
 
             /// Comment out the line below to run the app
             // without HTML5 mode (will use hashes in routes)
+            $urlRouterProvider.otherwise('/');
+
+            /// Comment out the line below to run the app
+            // without HTML5 mode (will use hashes in routes)
+            $locationProvider.html5Mode(true);
         }])

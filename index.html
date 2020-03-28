@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="Vane">
+<html ng-app="Vane" ng-cloak>
 
 <head>
     <title>Weather App</title>
@@ -95,18 +95,36 @@
             <div class="weather-selected-info row mx-0 align-content-center" style="height: 100%;" dropzone="copy">
                 <div class="col-lg-12 col-sm-10 d-flex flex-wrap justify-content-center">
                     <div class="flex-item">
-                        <h4>{{::timezone}}</h4>
+                        <h4>{{::mc.timezone}}</h4>
                     </div>
                     <div class="flex-item" style="flex: 1 0 100%">
-                        <img id="weather-illus" class="d-block mx-auto" ng-src="./icons/{{selected.icon}}.svg" width="30%"/>
+                        <img id="weather-illus" class="d-block mx-auto" ng-src="./icons/{{selected.icon}}.svg"
+                            width="30%" />
                     </div>
                     <div class="flex-item">
                         <h1 class="text-center">{{selected.temperature | number : 0}}<strong>&deg;</strong>F</h1>
                         <p class="text-center">
-                            <small class="text-muted">{{selected.time | date}}</small><br />
+                            <!-- <small class="text-muted">{{selected.time | date}}</small><br /> -->
                             <small class="">{{currentTime}}</small><br />
                             <small class="">{{selected.summary}}</small>
                         </p>
+                    </div>
+                    <div class="flex-item d-flex w-100 justify-content-around" style="padding: 0 20%;">
+                        <div class="flex-item">
+                            <img src="./icons/humidity-48px.svg" />
+                            <div class="text-center text-white" style="font-size: 75%;">
+                                {{selected.humidity | formatHumidity | number: 0}} %</div>
+                        </div>
+                        <div class="flex-item">
+                            <img src="./icons/visibility-48px.svg" />
+                            <div class="text-center text-white" style="font-size: 75%;">
+                                {{selected.visibility | number: 0}}</div>
+                        </div>
+                        <div class="flex-item">
+                            <img src="./icons/wind-48px.svg" />
+                            <div class="text-center text-white" style="font-size: 75%;">
+                                {{selected.windSpeed | number: 0}} MPH</div>
+                        </div>
                     </div>
                     <div class="flex-item" style="flex-basis: 100%;">
                         <button class="btn d-block mx-auto" ng-click="refreshData()" style="outline: none;">
@@ -120,7 +138,7 @@
 
         <div class="content-view container">
             <nav class="ml-n3 mr-n3" role="navigation">
-                <ul class="nav nav-tabs flex justify-content-around" id="myTab">
+                <ul class="nav nav-tabs flex justify-content-around border-0" id="myTab">
                     <li class="nav-item flex-item d-inline-flex"><a ui-sref="weather" ui-sref-active="active"
                             class="nav-link">
                             Weather
@@ -176,9 +194,9 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body px-1 py-1 pt-auto pb-auto">
-                            <div class="row" ng-if="true" style="height: 70px;">
+                            <div class="row" ng-if="true">
                                 <div class="col-3">
-                                    <object data="./icons/loading.svg" width="70px"></object>
+                                    <object data="./icons/loading.svg" height="70px"></object>
                                 </div>
                                 <div class="col-9 d-flex">
                                     <small class="text-muted align-self-center mx-0 flex-item">Locating...</small>
@@ -192,65 +210,75 @@
 
         </div>
         <!-- End app container -->
-        <div id="right-modal" class="container h-100 w-25 bg-white position-absolute"
-            ng-class="{'show-settings' : showSettings}">
-            <div id="settings-pane" ng-controller="SettingsController" class="row" ng-class="{'show-settings' : showSettings}">
-                <div class="col-12 mt-4">
-                    <h3 class="text-muted">Settings</h3>
+        <div id="right-modal" class="container h-100 position-absolute" ng-class="{'show-settings' : showSettings}">
+            <div id="settings-pane" ng-controller="SettingsController" class="row"
+                ng-class="{'show-settings' : showSettings}">
+                <div class="col-12 pt-4 header">
+                    <h3 class="text-white">Settings</h3>
                 </div>
-                <!-- Temperature Unit -->
-                <div class="col-12 border-bottom">
-                    <div class="row d-flex align-content-center" style="min-height: 50px;">
-                        <div class="col-8 flex-item">
-                            <p class="text-primary mb-0" style="line-height: 0.6;">Use Celcuis as unit</p>
-                            <label class="text-muted mb-0" style="font-size: 70%;">Defaults to farenheits</label>
-                        </div>
-                        <div class="col-4 flex-item">
-                            <div id="sh-hide-toggle-wrapper" title="Hide shortcuts">
-                                <label class="switch">
-                                    <input id="sh-hide-toggle" ng-model="tempUnit" value="F" type="checkbox" tabindex="-1"
-                                        aria-labelledby="sh-hide-title">
-                                    <span class="toggle">
-                                        <div class="knob"></div>
-                                        <div class="highlight"></div>
-                                    </span>
-                                </label>
+                <div class="col-12 settings-category p-0">
+                    <div class="setting-category-title px-3">
+                        <span></span>
+                        General
+                    </div>
+                    <!-- Temperature Unit -->
+                    <div class="col-12 border-0">
+                        <div class="row d-flex align-content-center" style="min-height: 50px;">
+                            <div class="col-8 flex-item">
+                                <p class="text-white mb-0" style="line-height: 0.6;">Use Celcuis as unit</p>
+                                <label class="text-muted mb-0" style="font-size: 70%;">Defaults to farenheits</label>
+                            </div>
+                            <div class="col-4 flex-item">
+                                <div id="sh-hide-toggle-wrapper" title="Hide shortcuts">
+                                    <label class="switch">
+                                        <input id="sh-hide-toggle" ng-model="tempUnit" value="F" type="checkbox"
+                                            tabindex="-1" aria-labelledby="sh-hide-title">
+                                        <span class="toggle">
+                                            <div class="knob"></div>
+                                            <div class="highlight"></div>
+                                        </span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- <div class="col-12 seperator"></div> -->
+                    <!-- End Temperature Unit -->
                 </div>
-                <div class="col-12 seperator"></div>
-                <!-- End Temperature Unit -->
-    
-                <!-- Start Update Unit -->
-                <div class="col-12">
-                    <div class="flex-item my-2">
-                        <p class="text-primary mb-1" style="line-height: 1;">Check for updates every</p>
-                        <div class="form-group">
-                            <select class="form-control">
-                                <option>30 minutes</option>
-                                <option selected>1 hour</option>
-                                <option>2 hours</option>
-                                <option>3 hours</option>
-                                <option>Day</option>
-                            </select>
+
+                <div class="col-12 settings-category p-0">
+                    <div class="setting-category-title px-3">
+                        <span></span>
+                        Location
+                    </div>
+                    <!-- Start Update Unit -->
+                    <div class="col-12">
+                        <div class="flex-item my-2">
+                            <p class="text-white mb-1" style="line-height: 1;">Check for updates every</p>
+                            <div class="form-group">
+                                <select class="form-control event-input">
+                                    <option>30 minutes</option>
+                                    <option selected>1 hour</option>
+                                    <option>2 hours</option>
+                                    <option>3 hours</option>
+                                    <option>Day</option>
+                                </select>
+                            </div>
                         </div>
+
                     </div>
 
+                    <!-- End Location Unit -->
                 </div>
-                <div class="col-12 seperator position-absolute" style="bottom: 10px;">
+                <div class="col-12 position-absolute" style="bottom: 10px;">
                     <div class="btn-group float-right w-100">
                         <button class="btn btn-primary" ng-click="mc.saveSettings()">
                             Done
                         </button>
                     </div>
                 </div>
-                <!-- End Location Unit -->
-
-
             </div>
         </div>
-
 </body>
 
 </html>
