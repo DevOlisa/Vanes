@@ -100,20 +100,26 @@ html {
     border-color: transparent;
   }
 
-  &:active, &:focus {
-    background-color: rgba(241, 241, 241, 0.829)!important;
+  &:active,
+  &:focus {
+    background-color: rgba(241, 241, 241, 0.829) !important;
     border-color: whitesmoke;
-    color: rgba(0, 0, 0, .65)!important;
+    color: rgba(0, 0, 0, .65) !important;
   }
 }
 
-input:focus, .form-control:focus {
+input:focus,
+.form-control:focus {
   outline: none;
   box-shadow: none;
 }
 
 .card {
   cursor: pointer;
+}
+
+.event-card {
+  height: 85px;
 }
 
 /************************** End Widgets Styles *****************************/
@@ -190,7 +196,7 @@ input:focus, .form-control:focus {
 .content-view {
   bottom: 0;
   height: 60.8vh;
-  background: linear-gradient(rgba(0,0,0,0.45), rgba(0, 0, 0, 0.45));
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
   color: #222222;
   user-select: none;
 }
@@ -233,6 +239,12 @@ input:focus, .form-control:focus {
     color: rgb(177, 177, 177);
   }
 
+  .indicator {
+    height: 4px;
+    color: #ffffff;
+    width: 100%;
+  }
+
   &.active {
     color: var(--light);
     background-color: initial;
@@ -243,7 +255,7 @@ input:focus, .form-control:focus {
   padding-block-start: 0.5rem;
   padding-block-end: 0.5rem;
   border: none;
-  border-bottom: 2px solid #555555;
+  border-bottom: 3px solid #e7e7e7;
   border-radius: 0;
   padding-inline-start: 0;
   background-color: transparent;
@@ -355,20 +367,21 @@ input:focus, .form-control:focus {
 
     .card {
       background-color: transparent;
-      // border-radius: 0;
+      border-radius: 0;
 
       img {
         -webkit-user-drag: none;
       }
 
       &.current-card {
-        border: 2px solid var(--light) !important;
+        // border: 2px solid var(--light) !important;
+        background-color: rgba(241, 241, 241, 0.247);
 
         img {
           filter: drop-shadow(0px 2px 4px #00000045);
         }
       }
-      
+
       &.selected-card {
         background: rgba(0, 0, 0, .65);
       }
@@ -400,4 +413,38 @@ input:focus, .form-control:focus {
     // background: $pri;
     transition: 400ms;
   }
+}
+
+//Animation Styles
+.event-card {
+  opacity: 1;
+
+  &.ng-enter, &.ng-move{
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    opacity: 0;
+    height: 0;
+  }
+
+  &.ng-enter-active {
+    height: 85px;
+    opacity: 1;
+  }
+
+  &.ng-leave {
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    opacity: 1;
+  }
+
+  &.ng-leave-active {
+    opacity: 0;
+    height: 0;
+  }
+
+  // &.ng-move.ng-move-active {
+  //   transition: 2s linear;
+  //   opacity: 1;
+  //   height: 85px;
+  // }
 }

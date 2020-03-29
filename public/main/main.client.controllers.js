@@ -25,7 +25,7 @@ angular.module('Main')
         };
 
         // Default temperature filter
-        self.unitFilter = 'C';
+        self.unitFilter = 'F';
 
         var init = function (fetchFromAPi = null) {
             WeatherService.setCurrentWeather();

@@ -80,12 +80,16 @@ html {
     border-color: whitesmoke;
     color: rgba(0, 0, 0, 0.65) !important; }
 
-input:focus, .form-control:focus {
+input:focus,
+.form-control:focus {
   outline: none;
   box-shadow: none; }
 
 .card {
   cursor: pointer; }
+
+.event-card {
+  height: 85px; }
 
 /************************** End Widgets Styles *****************************/
 #app,
@@ -170,6 +174,11 @@ input:focus, .form-control:focus {
   .nav a:hover,
   .nav-tabs .nav-link:hover {
     color: #b1b1b1; }
+  .nav a .indicator,
+  .nav-tabs .nav-link .indicator {
+    height: 4px;
+    color: #ffffff;
+    width: 100%; }
   .nav a.active,
   .nav-tabs .nav-link.active {
     color: var(--light);
@@ -179,7 +188,7 @@ input:focus, .form-control:focus {
   padding-block-start: 0.5rem;
   padding-block-end: 0.5rem;
   border: none;
-  border-bottom: 2px solid #555555;
+  border-bottom: 3px solid #e7e7e7;
   border-radius: 0;
   padding-inline-start: 0;
   background-color: transparent;
@@ -255,11 +264,12 @@ input:focus, .form-control:focus {
     .content-view #myTab .nav-link {
       padding-top: 30px; }
     .content-view .card {
-      background-color: transparent; }
+      background-color: transparent;
+      border-radius: 0; }
       .content-view .card img {
         -webkit-user-drag: none; }
       .content-view .card.current-card {
-        border: 2px solid var(--light) !important; }
+        background-color: rgba(241, 241, 241, 0.247); }
         .content-view .card.current-card img {
           filter: drop-shadow(0px 2px 4px #00000045); }
       .content-view .card.selected-card {
@@ -282,5 +292,22 @@ input:focus, .form-control:focus {
 
   ::-webkit-scrollbar-thumb:hover {
     transition: 400ms; } }
+.event-card {
+  opacity: 1; }
+  .event-card.ng-enter, .event-card.ng-move {
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    opacity: 0;
+    height: 0; }
+  .event-card.ng-enter-active {
+    height: 85px;
+    opacity: 1; }
+  .event-card.ng-leave {
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    opacity: 1; }
+  .event-card.ng-leave-active {
+    opacity: 0;
+    height: 0; }
 
 /*# sourceMappingURL=app.css.map */

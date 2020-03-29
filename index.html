@@ -75,7 +75,7 @@
 <body ng-controller="MainController as mc">
     <div id="app" ng-controller="WeatherController as wc">
 
-        <div class="weather-view container night">
+        <div class="weather-view container evening-sunset">
             <nav id="app-options" class="navbar navbar-toggleable-md navbar-dark">
                 <button class="btn navbar-toggler-right" type="button" aria-controls="navbarNavDropdown"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -141,8 +141,8 @@
                 <ul class="nav nav-tabs flex justify-content-around border-0" id="myTab">
                     <li class="nav-item flex-item d-inline-flex"><a ui-sref="weather" ui-sref-active="active"
                             class="nav-link">
-                            Weather
-                            <svg id="weather-ico" width="24px" height="24px" version="1.1"
+                            WEATHER
+                            <!-- <svg id="weather-ico" width="24px" height="24px" version="1.1"
                                 style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                                 viewBox="0 0 240 240" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <rect class="fil0" width="240" height="240" />
@@ -151,11 +151,12 @@
                                 <path class="fil0"
                                     d="M154 99c58,9 51,73 51,73l-171 0c0,-26 9,-45 25,-54 1,-63 82,-68 95,-19z" />
                                 </g>
-                            </svg>
+                            </svg> -->
+                            <div class="indicator"></div>
                         </a></li>
                     <li class="nav-item flex-item"><a class="nav-link" ui-sref="places" ui-sref-active="active">
-                            Places
-                            <svg id="locationPin-ico" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
+                            PLACES
+                            <!-- <svg id="locationPin-ico" xmlns="http://www.w3.org/2000/svg" xml:space="preserve"
                                 width="22px" height="22px" version="1.1"
                                 style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
                                 viewBox="0 0 240 240" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -163,11 +164,12 @@
                                 <path class="fil1 str0"
                                     d="M118 35c22,0 40,18 40,41 0,8 -2,16 -7,23l-32 104 -36 -105c-3,-6 -5,-12 -6,-19 0,-1 0,-2 0,-3 0,-23 18,-41 41,-41zm0 19c11,0 19,9 19,19 0,10 -8,18 -19,18 -10,0 -18,-8 -18,-18 0,-10 8,-19 18,-19z" />
                                 <circle class="fil2 str1" cx="118" cy="70" r="18" />
-                            </svg>
+                            </svg> -->
+                            <div class="indicator"></div>
                         </a></li>
                     <li class="nav-item flex-item"><a class="nav-link" ui-sref="events" ui-sref-active="active">
-                            Events
-                            <svg id="event-ico" width="24px" height="24px" version="1.1" viewBox="0 0 240 240">
+                            EVENTS
+                            <!-- <svg id="event-ico" width="24px" height="24px" version="1.1" viewBox="0 0 240 240">
                                 <path class="fil0 str0"
                                     d="M47 67l143 0 0 115c0,2 -2,4 -4,4l-135 0c-2,0 -4,-2 -4,-4l0 -115z" />
                                 <rect class="fil1 str1" x="50" y="67" width="135.63" height="19.376" />
@@ -179,7 +181,8 @@
                                 <circle class="fil0 str2" cx="74" cy="150" r="10" />
                                 <circle class="fil0 str2" cx="119" cy="150" r="10" />
                                 <circle class="fil0 str2" cx="163" cy="150" r="10" />
-                            </svg>
+                            </svg> -->
+                            <div class="indicator"></div>
                         </a>
                     </li>
                 </ul>

@@ -3,22 +3,22 @@
     <div ng-if="eventsData.length === 0 || !eventsData" class="row align-content-center" style="height: 80%;">
         <div class="col-2"></div>
         <div class="col-8">
-            <img class="d-block mx-auto" src="./icons/event-illus.svg" width="100%"/>
+            <img class="d-block mx-auto" src="./icons/event-illus.svg" width="100%" />
         </div>
         <div class="col-2"></div>
         <div class="col-12 caption text-center  text-white">Get weather updates for upcoming events</div>
         <div class="col-12">
-            <div class="btn btn-primary d-block w-50 mt-2 mx-auto" data-toggle="modal"
-            data-target="#addEventModal" style="font-size: 75%; font-weight: 700;">Add Event</div>
+            <div class="btn btn-primary d-block w-50 mt-2 mx-auto" data-toggle="modal" data-target="#editEventModal"
+                style="font-size: 75%; font-weight: 700;">Add Event</div>
         </div>
     </div>
-    <event-card ng-repeat="evt in eventsData | orderBy:+created" event-data="evt"></event-card>
+    <event-card ng-repeat="evt in eventsData track by evt.title | orderBy:+evt.time" event-data="evt"
+        ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}"></event-card>
 
 </div>
 
 <div id="addEventModal" class="modal fade" ng-class="{'show': addEventDialog}" tabindex="-1" role="dialog"
     aria-hidden="true">
-
     <div class="modal-dialog" ng-class="{'show': addEventDialog}" style="top: 10%;" role="document">
         <div class="modal-content">
             <div class="modal-header" style="border: none;">
@@ -30,32 +30,32 @@
             <form role="form" name="AddEventForm" ng-submit="ec.submit()">
                 <div class="modal-body">
                     <div class="form-group">
-                        <input type="text" ng-model="event.title" class="form-control event-input" id=""
+                        <input type="text" ng-model="event.title" class="form-control event-input" 
                             placeholder="Add event title">
                         <label class="sr-" style="font-size: 60%;">Title</label>
                     </div>
 
                     <div class="row">
                         <div class="col-12 form-group">
-                            <input type="date" ng-model="event.date" class="form-control event-input" id=""
+                            <input type="date" ng-model="event.date" class="form-control event-input" 
                                 placeholder="Day">
                             <div class="indicator"></div>
                             <label class="s" style="font-size: 60%;">Date</label>
                         </div>
 
                         <!-- <div class="col-3 form-group">
-                            <input type="month" min="01" class="form-control" id="" placeholder="Month" aria-valuetext="05">
+                            <input type="month" min="01" class="form-control"  placeholder="Month" aria-valuetext="05">
                             <label class="sr-only" style="font-size: 60%;"><small>Month</small></label>
                         </div>
 
                         <div class="col-6 form-group">
-                            <input type="year" class="form-control" id="" placeholder="Year">
+                            <input type="year" class="form-control"  placeholder="Year">
                             <label class="sr-only" style="font-size: 60%;"><small>Year</small></label>
                         </div> -->
                     </div>
 
                     <div class="form-group">
-                        <input type="time" ng-model="event.time" class="form-control event-input" id=""
+                        <input type="time" ng-model="event.time" class="form-control event-input" 
                             aria-valuenow="12:00 AM" placeholder="05 : 00" style="font-size: 250%;">
                         <label class="sr-" style="font-size: 60%;">Time</label>
                     </div>
@@ -63,9 +63,8 @@
                 </div>
 
                 <div class="modal-footer" style="border: none;">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>Close</button>
-                    <input type="submit" class="btn btn-primary" value="Save">
+                    <button type="button" class="btn btn-default text-white px-4" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary px-4" data-submit="modal" value="Save">
                 </div>
             </form>
         </div>
@@ -73,10 +72,10 @@
 
 </div>
 
-<div ng-if="eventsData.length > 0" class="btn-group position-absolute" style="left: 50%; bottom: 10px;transform: translateX(-50%);"
-    ng-show="!editingEvents">
+<div ng-if="eventsData.length > 0" class="btn-group position-absolute"
+    style="left: 50%; bottom: 10px;transform: translateX(-50%);" ng-show="!editingEvents">
     <button class="btn btn-default btn-main float-left circle px-0 mr-3" data-toggle="modal"
-        data-target="#addEventModal" title="Add New Event" aria-details="Add New Event"
+        data-target="#editEventModal" title="Add New Event" aria-details="Add New Event"
         style="height: 54px; width: 54px;  border-radius: 50%;">
         <img class="" src="./icons/add-48px.svg" width="30px">
     </button>
@@ -87,10 +86,67 @@
     </button>
 </div>
 
-<div class="position-absolute"ng-if="eventsData.length > 0" ng-click="leaveEditMode()" ng-show="editingEvents"
+<div class="position-absolute" ng-if="eventsData.length > 0" ng-click="leaveEditMode()" ng-show="editingEvents"
     style="left: 50%; bottom: 10px;transform: translateX(-50%);">
     <button class="btn btn-default btn-main circle px-0" title="Done"
         style="height: 54px; width: 54px; border-radius: 50%;">
         <img src="./icons/done-48px.svg" width="40px" />
     </button>
 </div>
+
+<!-- Edit Event Modal -->
+<div id="editEventModal" class="modal fade" ng-class="{'show': addEventDialog}" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog" ng-class="{'show': addEventDialog}" style="top: 10%;" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border: none;">
+                <h2 class="font-weight-bold" id="AddEventModalLabel">Edit Event</h2>
+            </div>
+
+            <form role="form" name="AddEventForm" ng-submit="ec.submit()">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" ng-model="event.title" class="form-control event-input" 
+                            placeholder="Add event title">
+                        <label class="sr-" style="font-size: 60%;">Title</label>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-3 form-group">
+                            <input type="number" min="01" max="31" ng-model="event.day" class="form-control event-input" 
+                                placeholder="Day" value="{{}}">
+                            <div class="indicator"></div>
+                            <label class="sr" style="font-size: 60%;"></label>
+                        </div>
+
+                        <div class="col-3 form-group">
+                            <input type="number" min="1" max="12" ng-model="event.month" class="form-control event-input"  placeholder="Month"
+                                aria-valuetext="05">
+                            <div class="indicator"></div>
+                            <label class="sr" style="font-size: 60%;"><small>Month</small></label>
+                        </div>
+
+                        <div class="col-6 form-group">
+                            <input type="number" min="1976" max="2021" ng-model="event.year" class="form-control event-input"  placeholder="Year">
+                            <div class="indicator"></div>
+                            <label class="sr-" style="font-size: 60%;"><small>Year</small></label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="time" ng-model="event.time" class="form-control event-input" 
+                            aria-valuenow="12:00 AM" placeholder="05 : 00" style="font-size: 250%;">
+                        <label class="sr-" style="font-size: 60%;">Time</label>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer" style="border: none;">
+                    <button type="button" class="btn btn-default text-white px-4" data-dismiss="modal">Cancel</button>
+                    <input type="submit" class="btn btn-primary px-4" data-submit="modal" value="Save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Edit Event Modal -->

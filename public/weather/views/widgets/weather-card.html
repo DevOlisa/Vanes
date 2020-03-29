@@ -8,7 +8,7 @@
                 <!-- {{mc.unitFilter}} -->
                 {{weatherData.temperature | tempUnit}}&deg;</div>
             <p class="text-white mb-2 text-center"ng-show="!isCurrent" style="font-size: 0.8rem;">
-                {{weatherData.time | twitterAgo : 'short'}}</p>
+                {{weatherData.time | date : 'HH:00'}}</p>
             <p class="text-primary mb-2 text-center" ng-show="isCurrent" style="font-size: 0.8rem;">
                 Currently</p>
             <!-- <a href="#" class="btn btn-primary"></a> -->
