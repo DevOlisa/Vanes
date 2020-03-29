@@ -3,7 +3,7 @@
 
 <head>
     <title>Weather App</title>
-    <base href="/" />
+    <base href="http://ec2-54-172-0-254.compute-1.amazonaws.com/"/>
     <!-- ie9+ rendering support for latest standards -->
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,27 +14,27 @@
     <meta property="og:description" content="A Weather App built to mesmerize">
     <meta name="keyword" content="">
 
-    <link rel="stylesheet" href="./css/vendor/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./css/app.css">
-    <link rel="stylesheet" href="./css/svg.css">
+    <link rel="stylesheet" href="css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/svg.css">
 
     <!-- Our third party scripts -->
-    <!-- <script src="./lib/jquery.js"></script>
+    <!-- <script src="lib/jquery.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="./lib/bootstrap.js"></script> -->
-    <script type="text/javascript" src="./lib/angular/angular.js"></script>
-    <script type="text/javascript" src="./lib/@uirouter/angularjs/release/angular-ui-router.js"></script>
-    <script src="./lib/angular-animate/angular-animate.js"></script>
-    <script src="./lib/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="./lib/moment/moment.js"></script>
-    <script type="text/javascript" src="./lib/moment-twitter/moment-twitter.js"></script>
-    <!-- <script type="text/javascript" src="./lib/auth0-js/build/auth0.js"></script>
-    <script type="text/javascript" src="./lib/angular-auth0/dist/angular-auth0.js"></script> -->
-    <script src="./lib/angular-cookies/angular-cookies.js"></script>
-    <!-- <script src="./lib/angular-messages/angular-messages.js"></script> -->
-    <script src="./lib/angular-resource/angular-resource.js"></script>
-    <!-- <script src="./lib/angular-slick.min.js"></script> -->
-    <script src="./lib/angular-sanitize.js"></script>
+    <script src="lib/bootstrap.js"></script> -->
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/@uirouter/angularjs/release/angular-ui-router.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="lib/moment/moment.js"></script>
+    <script type="text/javascript" src="lib/moment-twitter/moment-twitter.js"></script>
+    <!-- <script type="text/javascript" src="lib/auth0-js/build/auth0.js"></script>
+    <script type="text/javascript" src="lib/angular-auth0/dist/angular-auth0.js"></script> -->
+    <script src="lib/angular-cookies/angular-cookies.js"></script>
+    <!-- <script src="lib/angular-messages/angular-messages.js"></script> -->
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <!-- <script src="lib/angular-slick.min.js"></script> -->
+    <script src="lib/angular-sanitize.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -47,29 +47,29 @@
         crossorigin="anonymous"></script>
 
     <!-- our main feature modules -->
-    <script src="./main/main.client.module.js"></script>
-    <script src="./weather/weather.client.module.js"></script>
-    <script src="./places/places.client.module.js"></script>
-    <script src="./schedule/events.client.module.js"></script>
+    <script src="main/main.client.module.js"></script>
+    <script src="weather/weather.client.module.js"></script>
+    <script src="places/places.client.module.js"></script>
+    <script src="schedule/events.client.module.js"></script>
 
-    <script src="./main/main.client.service.js"></script>
-    <script src="./main/location.client.service.js"></script>
-    <script src="./main/main.client.routes.js"></script>
-    <script src="./main/main.client.filter.js"></script>
-    <script src="./main/main.client.controllers.js"></script>
+    <script src="main/main.client.service.js"></script>
+    <script src="main/location.client.service.js"></script>
+    <script src="main/main.client.routes.js"></script>
+    <script src="main/main.client.filter.js"></script>
+    <script src="main/main.client.controllers.js"></script>
 
-    <script src="./schedule/events.client.service.js"></script>
-    <script src="./schedule/events.client.filter.js"></script>
-    <script src="./schedule/events.client.directive.js"></script>
-    <script src="./schedule/events.client.controllers.js"></script>
+    <script src="schedule/events.client.service.js"></script>
+    <script src="schedule/events.client.filter.js"></script>
+    <script src="schedule/events.client.directive.js"></script>
+    <script src="schedule/events.client.controllers.js"></script>
 
-    <script src="./weather/weather.client.service.js"></script>
-    <script src="./weather/weather.client.directive.js"></script>
-    <script src="./weather/weather.client.controllers.js"></script>
+    <script src="weather/weather.client.service.js"></script>
+    <script src="weather/weather.client.directive.js"></script>
+    <script src="weather/weather.client.controllers.js"></script>
 
-    <script src="./places/places.client.controllers.js"></script>
+    <script src="places/places.client.controllers.js"></script>
 
-    <script src="./app.client.js"></script>
+    <script src="app.client.js"></script>
 </head>
 
 <body ng-controller="MainController as mc">
@@ -79,13 +79,13 @@
             <nav id="app-options" class="navbar navbar-toggleable-md navbar-dark">
                 <button class="btn navbar-toggler-right" type="button" aria-controls="navbarNavDropdown"
                     aria-expanded="false" aria-label="Toggle navigation">
-                    <img class="" src="./icons/nav-toggler-icon-48px.svg" / width="40px">
+                    <img class="" src="icons/nav-toggler-icon-48px.svg" / width="40px">
                 </button>
                 <div class="list-inline">
                     <ul class="navbar-nav list-inline">
                         <li>
                             <button class="btn" ng-click="mc.toggleSettingsPane()"><img class=""
-                                    src="./icons/settings-menu-48px.svg" / width="40px"></button>
+                                    src="icons/settings-menu-48px.svg" / width="40px"></button>
                             <span class="sr-only">(settings)</span></a> </li>
                         <li>
                         </li>
@@ -98,7 +98,7 @@
                         <h4>{{::mc.timezone}}</h4>
                     </div>
                     <div class="flex-item" style="flex: 1 0 100%">
-                        <img id="weather-illus" class="d-block mx-auto" ng-src="./icons/{{selected.icon}}.svg"
+                        <img id="weather-illus" class="d-block mx-auto" ng-src="icons/{{selected.icon}}.svg"
                             width="30%" />
                     </div>
                     <div class="flex-item">
@@ -111,24 +111,24 @@
                     </div>
                     <div class="flex-item d-flex w-100 justify-content-around" style="padding: 0 20%;">
                         <div class="flex-item">
-                            <img src="./icons/humidity-48px.svg" />
+                            <img src="icons/humidity-48px.svg" />
                             <div class="text-center text-white" style="font-size: 75%;">
                                 {{selected.humidity | formatHumidity | number: 0}} %</div>
                         </div>
                         <div class="flex-item">
-                            <img src="./icons/visibility-48px.svg" />
+                            <img src="icons/visibility-48px.svg" />
                             <div class="text-center text-white" style="font-size: 75%;">
                                 {{selected.visibility | number: 0}}</div>
                         </div>
                         <div class="flex-item">
-                            <img src="./icons/wind-48px.svg" />
+                            <img src="icons/wind-48px.svg" />
                             <div class="text-center text-white" style="font-size: 75%;">
                                 {{selected.windSpeed | number: 0}} MPH</div>
                         </div>
                     </div>
                     <div class="flex-item" style="flex-basis: 100%;">
                         <button class="btn d-block mx-auto" ng-click="refreshData()" style="outline: none;">
-                            <img src="./icons/refresh-spinner-24px.svg" />
+                            <img src="icons/refresh-spinner-24px.svg" />
                         </button>
                     </div>
 
@@ -199,7 +199,7 @@
                         <div class="modal-body px-1 py-1 pt-auto pb-auto">
                             <div class="row" ng-if="true">
                                 <div class="col-3">
-                                    <object data="./icons/loading.svg" height="70px"></object>
+                                    <object data="icons/loading.svg" height="70px"></object>
                                 </div>
                                 <div class="col-9 d-flex">
                                     <small class="text-muted align-self-center mx-0 flex-item">Locating...</small>
