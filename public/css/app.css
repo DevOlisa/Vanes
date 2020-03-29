@@ -292,6 +292,7 @@ input:focus,
 
   ::-webkit-scrollbar-thumb:hover {
     transition: 400ms; } }
+/******************************** ANIMATION STYLES *****************************************/
 .event-card {
   opacity: 1; }
   .event-card.ng-enter, .event-card.ng-move {
@@ -309,5 +310,17 @@ input:focus,
   .event-card.ng-leave-active {
     opacity: 0;
     height: 0; }
+  .event-card .deletion-control.ng-enter {
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    transform: translateX(100%); }
+  .event-card .deletion-control.ng-enter-active {
+    transform: translateX(0%); }
+  .event-card .deletion-control.ng-leave {
+    -webkit-transition: 0.15s;
+    transition: 0.15s;
+    transform: translateX(0); }
+  .event-card .deletion-control.ng-leave-active {
+    transform: translateX(100%); }
 
 /*# sourceMappingURL=app.css.map */

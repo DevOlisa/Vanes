@@ -19,35 +19,7 @@ angular.module('Weather')
                     }
                 })
             }
-
-            service.setCurrentWeather = function () {
-                console.log(navigator.onLine);
-                if (!navigator.onLine && localStorage.getItem('weatherData')) {
-                    console.log("From offline storage");
-                    service.getLocalWeatherData();
-                    service.hourly.data.map(function (data) {
-                        data.time *= 1000;
-                        data.hour = new Date(data.time).getHours();
-                    })
-                } else {
-                    service.getWeatherReport()
-                        .then(function (response) {
-                            if (response.status === 200) {
-                                service.currently = response.data.currently;
-                                service.hourly = response.data.hourly;
-                                service.timezone = response.data.timezone;
-                                service.saveWeatherData(response.data);
-                                console.log("From darksky.net api");
-                                console.log(response.data);
-                            } else if (response.status > 500) {
-                                console.log('Internal Server Error Occured');
-                            }
-                        }, function (error) {
-                            console.log(error);
-                        })
-                }
-            };
-
+            
             service.renewWeatherData = function () {
                 if (service.autoUpdateWeather) {
                     $interval(function () {
@@ -58,6 +30,9 @@ angular.module('Weather')
 
             service.saveWeatherData = function (data) {
                 if (typeof data == 'object') {
+                    service.timezone = data.timezone;
+                    service.currently = data.currently;
+                    service.hourly = data.hourly;
                     data = JSON.stringify(data);
                     localStorage.setItem('weatherData', data);
                 } else {
@@ -67,21 +42,22 @@ angular.module('Weather')
 
             service.getLocalWeatherData = function () {
                 let data = JSON.parse(localStorage.getItem('weatherData'));
+                if (!data) throw new Error('No offline data available');
                 service.timezone = data.timezone;
                 service.currently = data.currently;
-                console.log(data)
                 service.hourly = data.hourly;
+                return data;
             };
 
-            service.getForecast = function(time) {
+            service.getForecast = function (time) {
                 if (time === null) {
                     throw new Error('Time passed cannot be null');
                 }
                 let data = {},
-                forecastDate = moment(time);
+                    forecastDate = moment(time);
                 service.hourly.data.forEach(hour => {
                     let currentScope = moment(hour.time),
-                    diff = forecastDate.diff(currentScope);
+                        diff = forecastDate.diff(currentScope);
                     if (diff <= 3600000 && diff > 0) {
                         console.log('Found the match');
                         data = hour;

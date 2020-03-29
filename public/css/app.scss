@@ -91,6 +91,12 @@ html {
   }
 }
 
+.event-card {
+
+  .deletion-control {
+  }
+}
+
 .btn-primary {
   background-color: transparent;
   border-color: whitesmoke;
@@ -415,11 +421,12 @@ input:focus,
   }
 }
 
-//Animation Styles
+/******************************** ANIMATION STYLES *****************************************/
 .event-card {
   opacity: 1;
 
-  &.ng-enter, &.ng-move{
+  &.ng-enter,
+  &.ng-move {
     -webkit-transition: 0.15s;
     transition: 0.15s;
     opacity: 0;
@@ -442,9 +449,26 @@ input:focus,
     height: 0;
   }
 
-  // &.ng-move.ng-move-active {
-  //   transition: 2s linear;
-  //   opacity: 1;
-  //   height: 85px;
-  // }
+
+  .deletion-control {
+    &.ng-enter {
+      -webkit-transition: 0.15s;
+      transition: 0.15s;
+      transform: translateX(100%);
+    }
+
+    &.ng-enter-active {
+      transform: translateX(0%);
+    }
+
+    &.ng-leave {
+      -webkit-transition: 0.15s;
+      transition: 0.15s;
+      transform: translateX(0);
+    }
+
+    &.ng-leave-active {
+      transform: translateX(100%);
+    }
+  }
 }
