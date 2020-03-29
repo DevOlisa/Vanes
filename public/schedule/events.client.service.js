@@ -11,14 +11,6 @@ angular.module('Events')
             this.weatherData = evt.weatherData;
             console.log('New event created!');
         }
-        var data = {
-            title: "Tinder date",
-            time: new Date(),
-            time: new Date(),
-            created: new Date(),
-            weatherData: {}
-        };
-        service.events.push(new Event(data));
 
         service.createEvent = function (data) {
             if (!service.events) service.events = [];
@@ -59,8 +51,7 @@ angular.module('Events')
         }
 
         service.getLocalEventsData = function () {
-            // service.events = JSON.parse(localStorage.getItem('eventsData'));
-
+            service.events = JSON.parse(localStorage.getItem('eventsData'));
             return service.events;
         };
 
